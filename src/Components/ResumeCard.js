@@ -2,6 +2,7 @@ import React ,{useContext, useRef, useState} from "react";
 import resumeContext from '../Context/Resume/resumeContext';
 
 const ResumeCard = ({ resume, onDelete ,showalert  }) => {
+  const host = process.env.REACT_APP_API_URL || "http://localhost:5000"; 
   const rescontext = useContext(resumeContext);
   const {getresume, updateresume}=rescontext;
   const fileInputRef=useRef(null);
@@ -13,7 +14,7 @@ const ResumeCard = ({ resume, onDelete ,showalert  }) => {
       return;
     }
     const filepath=resume.resumepath.replace(/\\/g, "/");
-    const url = `http://localhost:5000/${filepath}`;
+    const url = `${host}/${filepath}`;
     window.open(url,"_blank"); 
   }
   const handleDownload=()=>{
@@ -22,7 +23,7 @@ const ResumeCard = ({ resume, onDelete ,showalert  }) => {
       return;
     }
     const filePath= resume.resumepath.replace(/\\/g,"/");
-    const url =`http://localhost:5000/${filePath}`
+    const url =`${host}/${filePath}`
     const link = document.createElement('a');
     link.href=url;
     link.download="";

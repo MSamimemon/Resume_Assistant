@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ResumeContext from "./resumeContext";
 const ResumeState=(props)=>{
-    const host = "http://localhost:5000"
+    const host = process.env.REACT_APP_API_URL || "http://localhost:5000";
     const resumeInitial=[];
     const [resume, setresume] = useState(resumeInitial);
 

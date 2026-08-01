@@ -3,7 +3,7 @@ import JobdescContext from "./jobdescContext";
 
 const JobdescState=(props)=>{
   const jobdescInitial=[];
-  const host = "http://localhost:5000"
+  const host = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const [jobdesc, setjobdesc] = useState(jobdescInitial);
 const getjobdesc=async()=>{

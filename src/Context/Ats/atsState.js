@@ -3,7 +3,7 @@ import atsContext from "./atsContext";
 
 const AtsState = (props) => {
     let success=false;
-    const host = "http://localhost:5000";
+    const host = process.env.REACT_APP_API_URL || "http://localhost:5000";
     const [loading, setLoading] = useState(false);
     const [atsHistory, setAtsHistory] = useState([]);
     const analyzeATS = async (resumeId, jobdescId) => {

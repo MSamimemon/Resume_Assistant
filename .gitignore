@@ -32,3 +32,6 @@ Backend/uploads/*
 
 # node_modules (backend has its own)
 Backend/node_modules/
+
+.env
+resume_assistant/.env

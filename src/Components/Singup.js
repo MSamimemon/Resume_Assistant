@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Singup = (props) => {
+  const host =  process.env.REACT_APP_API_URL || "http://localhost:5000";
   let navigate = useNavigate();
   const [credentials, setcredentials] = useState({
     name: "",
@@ -17,7 +18,7 @@ const Singup = (props) => {
       return;
     }
 
-    const response = await fetch("http://localhost:5000/api/auth/signuser", {
+    const response = await fetch(`${host}/api/auth/signuser`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -2,7 +2,7 @@ import { useState } from "react";
 import JobappContext from "./jobappContext";
 
 const JobappState =(props)=>{
-    const host = "http://localhost:5000"
+    const host = process.env.REACT_APP_API_URL || "http://localhost:5000";
     const jobappInitial=[]
     const [jobapp, setjobapp] = useState(jobappInitial);
     const getjobapp=async()=>{

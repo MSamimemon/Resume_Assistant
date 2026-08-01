@@ -161,7 +161,6 @@ const Resume = (props) => {
             </div>
           )}
 
-          {/* --- MANUAL TEXT TAB --- */}
           {activeTab === "manual" && (
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
