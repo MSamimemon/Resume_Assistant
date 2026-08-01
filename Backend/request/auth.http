@@ -1,0 +1,25 @@
+### Create a User
+ POST http://localhost:5000/api/auth/signuser
+Content-Type: application/json
+
+{
+  "name": "sami1",
+  "mobileNo": "02332819743",
+  "email": "sami1@example.com",
+  "password": "admin1234"
+}
+
+### Login 
+
+POST http://localhost:5000/api/auth/loginuser
+Content-Type: application/json
+
+{
+  "email": "sami1@example.com",
+  "password": "admin1234"
+}
+
+### get login by auth token 
+POST http://localhost:5000/api/auth/getuser
+auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+

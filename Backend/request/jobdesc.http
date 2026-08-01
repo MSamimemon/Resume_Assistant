@@ -1,0 +1,24 @@
+### fetch all Job Description
+GET  http://localhost:5000/api/jobdesc/fetchjobdesc
+auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+
+### Add Job Description 
+
+POST http://localhost:5000/api/jobdesc/addjobdesc
+auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+Content-Type: application/json
+
+{
+  "title": "Sample job desc text",
+  "company": "10 -pearls",
+  "text":"here is my resume as a full stack developer"
+}
+
+
+
+###delete a Job Description 
+DELETE http://localhost:5000/api/jobdesc/deletejobdesc/6a5b644537079709e6423151
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+Content-Type: application/json
+
+

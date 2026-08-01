@@ -1,0 +1,91 @@
+
+### ROUTE 1: Fetch all applications for logged-in user
+GET http://localhost:5000/api/application/fetchajobpplic
+auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+
+
+### ROUTE 2: Add a job application
+POST http://localhost:5000/api/application/addjobapplica
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+Content-Type: application/json
+
+{
+  "status": "applied",
+  "notes": "Applied via company careers page",
+  "resume": "6a5b7401fefbbfde4eb80cf4",
+  "jobdesc": "6a5b7426fefbbfde4eb80cf5"
+}
+
+
+### ROUTE 2b: Add application — invalid status (should fail validation)
+POST http://localhost:5000/api/application/addjobapplica
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+Content-Type: application/json
+
+{
+  "status": "pending",
+  "notes": "Invalid status test",
+  "resume": "6a5a6aa762e8e609fff5c489",
+  "jobdesc": "6a5b7426fefbbfde4eb80cf5"
+}
+
+
+### ROUTE 2c: Add application — invalid resume/jobdesc ids (should fail validation)
+POST http://localhost:5000/api/application/addjobapplica
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+Content-Type: application/json
+
+{
+  "status": "applied",
+  "notes": "Invalid ids test",
+  "resume": "not-a-real-id",
+  "jobdesc": "not-a-real-id"
+}
+
+
+### ROUTE 2d: Add application — no auth token (should return 401)
+POST http://localhost:5000/api/application/addjobapplica
+Content-Type: application/json
+
+{
+  "status": "applied",
+  "notes": "No auth test",
+  "resume": "6a5a6aa762e8e609fff5c489",
+  "jobdesc": "6a5b7426fefbbfde4eb80cf5"
+}
+
+
+### ROUTE 3: Update application status (replace :id with a real application _id)
+PUT http://localhost:5000/api/application/updatejobapplica/6a5b74c2fefbbfde4eb80cf6
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+Content-Type: application/json
+
+{
+  "status": "interview",
+  "notes": "Recruiter screen scheduled for next week"
+}
+
+
+### ROUTE 3b: Update application — nonexistent id (should return 404)
+PUT http://localhost:5000/api/application/updatejobapplica/000000000000000000000000
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+Content-Type: application/json
+
+{
+  "status": "offer"
+}
+
+
+### ROUTE 4: Delete an application (replace :id with a real application _id)
+DELETE http://localhost:5000/api/application/deletejobapplica/6a5b74c2fefbbfde4eb80cf6
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+
+
+### ROUTE 4b: Delete a nonexistent application (should return 404)
+DELETE http://localhost:5000/api/application/deletejobapplica/000000000000000000000000
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE1YTZhYTc2MmU4ZTYwOWZmZjVjNDg5In0sImlhdCI6MTc4NDMxMjYyNn0.rz8AHeJc7eiHWWGjUn4MywvhNJGowZZ4iM0ehoWXmLU
+
+
+### ROUTE 4c: Delete without auth token (should return 401)
+DELETE http://localhost:5000/api/application/deletejobapplica/6a5b74c2fefbbfde4eb80cf6
+
