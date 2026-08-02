@@ -87,7 +87,8 @@ Resume Assistant is designed to make the job-search process more organized and m
 **ATS Resume Analyzer**
 <img src="./screenshots/ss9.png" alt="ATS resume analyzer" />
 
-</td>
+</td >
+<td width="50%">
 </tr>
 </table>
 
