@@ -1,70 +1,184 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Resume Assistant
 
-## Available Scripts
+**A full-stack MERN workspace that brings your resumes, job descriptions, applications, and ATS analysis together in one place.**
 
-In the project directory, you can run:
+[Live Demo](https://resumeassistant-lyart.vercel.app) · [Report an Issue](https://github.com/MSamimemon/Resume_Assistant/issues) · [Contact](#contact)
 
-### `npm start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Overview
 
-### `npm test`
+Resume Assistant is designed to make the job-search process more organized and measurable. Instead of keeping resumes, job postings, applications, and ATS analysis scattered across different tools, everything lives inside one connected workspace — upload a resume, save a job description, run an ATS match, and track the application, all from a single dashboard.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- **Authentication** — secure signup/login with JWT tokens and bcrypt-hashed passwords
+- **Resume Management** — upload a PDF/DOCX resume or paste text manually; preview, download, replace, or delete resumes
+- **Job Description Tracking** — save job title, company, and full description for future matching
+- **ATS Resume Analyzer** — select a resume and job description to generate a match score, with matched vs. missing skills broken down
+- **Analytics Dashboard** — track average/highest/lowest ATS scores over time, plus most-matched and most-missing skills across all analyses
+- **Application Dashboard** — an at-a-glance overview of total resumes, job descriptions, ATS analyses, and average score
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<table>
+<tr>
+<td width="50%">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Landing Page**
+<img src="./screenshots/ss1.png" alt="Landing page section" />
 
-### `npm run eject`
+</td>
+<td width="50%">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Features Overview**
+<img src="./screenshots/ss2.png" alt="Features section" />
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**About & Contact**
+<img src="./screenshots/ss3.png" alt="About and contact section" />
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+</td>
+<td width="50%">
 
-## Learn More
+**Dashboard**
+<img src="./screenshots/ss4.png" alt="User dashboard" />
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Analytics**
+<img src="./screenshots/ss5.png" alt="ATS analytics page" />
 
-### Code Splitting
+</td>
+<td width="50%">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Resume Management**
+<img src="./screenshots/ss6.png" alt="Resume upload and management" />
 
-### Analyzing the Bundle Size
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Job Descriptions**
+<img src="./screenshots/ss7.png" alt="Job description form" />
 
-### Making a Progressive Web App
+</td>
+<td width="50%">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**ATS Resume Analyzer**
+<img src="./screenshots/ss8.png" alt="ATS resume analyzer" />
 
-### Advanced Configuration
+</td>
+</tr>
+</table>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Tech Stack
 
-### Deployment
+**Frontend**
+- React 19, React Router
+- Context API for state management (Resume, Job Description, ATS, Applications)
+- Tailwind CSS + Bootstrap
+- Craco (custom CRA configuration)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**Backend**
+- Node.js + Express
+- MongoDB Atlas + Mongoose
+- JWT authentication, bcrypt password hashing
+- Multer for file uploads
+- pdf-parse for resume text extraction
 
-### `npm run build` fails to minify
+**Deployment**
+- Frontend → Vercel
+- Backend → Render
+- Database → MongoDB Atlas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Structure
+
+```
+resume_assistant/
+├── Backend/
+│   ├── ATSService/        # Skill extraction, matching, and scoring logic
+│   ├── Parse/              # Resume/job description text parsing
+│   ├── Routes/             # API routes (auth, resume, jobdesc, ats, application, dashboard)
+│   ├── models/              # Mongoose schemas
+│   ├── middleware/          # Auth middleware, file upload handling
+│   └── index.js              # Express app entry point
+├── src/
+│   ├── Components/           # React components/pages
+│   ├── Context/               # Context API state management
+│   └── App.js
+└── public/
+```
+
+## Getting Started (Local Development)
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- A MongoDB connection string (local MongoDB or MongoDB Atlas)
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/MSamimemon/Resume_Assistant.git
+cd Resume_Assistant/resume_assistant
+```
+
+### 2. Backend setup
+```bash
+cd Backend
+npm nodemon .\index.js
+```
+Create a `.env` file in `Backend/` (see `.env.example` for reference):
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+EMAIL_USER=your_email
+EMAIL_PASS=your_email_app_password
+FRONTEND_URL=http://localhost:3000
+```
+
+### 3. Frontend setup
+```bash
+cd ..
+npm run start
+```
+Create a `.env` file in the project root:
+```
+REACT_APP_API_URL=http://localhost:5000
+```
+
+### 4. Run the app
+```bash
+cd ..
+npm run this
+```
+The app runs at `http://localhost:3000`, with the API at `http://localhost:5000`.
+
+## API Overview
+
+| Route | Description |
+|---|---|
+| `/api/auth` | User signup, login |
+| `/api/resume` | Upload and manage resumes |
+| `/api/jobdesc` | Add and manage job descriptions |
+| `/api/ats` | Run ATS analysis, view analysis history |
+| `/api/application` | Track job applications |
+| `/api/dashboard` | Dashboard statistics |
+
+
+## Contact
+
+- GitHub: [MSamimemon](https://github.com/MSamimemon)
+- LinkedIn: [Muhammad Sami](https://www.linkedin.com/in/muhammad-sami-02a509351/)
