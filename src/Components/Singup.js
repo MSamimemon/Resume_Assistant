@@ -55,7 +55,7 @@ const Singup = (props) => {
         <div className="card-body p-5">
           <div className="text-center mb-4">
             <h2 className="fw-bold">Create Account</h2>
-            <p className="text-muted">Sign up to get started with INoteBook</p>
+            <p className="text-muted">Sign up to get started with Resume Assistant</p>
           </div>
 
           <form onSubmit={handleSubmit}>
