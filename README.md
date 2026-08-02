@@ -77,8 +77,15 @@ Resume Assistant is designed to make the job-search process more organized and m
 </td>
 <td width="50%">
 
+**Job Application**
+<img src="./screenshots/ss7.png" alt="Job Application form" />
+
+</td>
+<td width="50%">
+
+
 **ATS Resume Analyzer**
-<img src="./screenshots/ss8.png" alt="ATS resume analyzer" />
+<img src="./screenshots/ss9.png" alt="ATS resume analyzer" />
 
 </td>
 </tr>
