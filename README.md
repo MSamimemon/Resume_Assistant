@@ -152,9 +152,6 @@ Create a `.env` file in `Backend/` (see `.env.example` for reference):
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
-EMAIL_USER=your_email
-EMAIL_PASS=your_email_app_password
-FRONTEND_URL=http://localhost:3000
 ```
 
 ### 3. Frontend setup
